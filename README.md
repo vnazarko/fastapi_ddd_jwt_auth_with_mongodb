@@ -15,7 +15,7 @@ Preparing to launch the application:
     # Extract the public key from the key pair, which can be used in a certificate
     openssl rsa -in jwt-private.pem -outform PEM -pubout -out jwt-public.pem
     ```
- - Now create it .the env file, it should look something like this:
+ - Now create it the `.env` file, it should look something like this:
    ```
    DB_URL='mongodb://user_db:password_db@localhost:27017'
    USERS_COLLECTION='users'
