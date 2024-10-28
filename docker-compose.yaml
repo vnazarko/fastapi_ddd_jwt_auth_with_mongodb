@@ -1,0 +1,29 @@
+networks:
+  fastapi_auth:
+
+services:
+  db:
+    image: mongo:latest
+    container_name: fastapi_auth_db
+    restart: always
+    env_file:
+      - ./.env
+    ports:
+      - 27017:27017
+    volumes:
+      - ./database-data:/data/db
+    networks:
+      - fastapi_auth
+
+  api:
+     depends_on:
+       - db
+     build: ./
+     container_name: fastapi_auth_db_api
+     restart: always
+     env_file:
+       - ./.env
+     networks:
+       - fastapi_auth
+     ports:
+       - "8000:8000"
